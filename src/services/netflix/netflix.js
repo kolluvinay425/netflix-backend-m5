@@ -5,6 +5,7 @@ import uniqid from "uniqid";
 import fs from "fs-extra";
 import { writeImagetoPublicFolder } from "../../../utils/image-upload.js";
 import multer from "multer";
+import { publicFolder } from "../../server.js";
 const netflixRouter = express.Router();
 
 const path = join(dirname(fileURLToPath(import.meta.url)), "netflix.json");

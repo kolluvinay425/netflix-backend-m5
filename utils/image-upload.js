@@ -4,10 +4,8 @@ import fs from "fs-extra";
 import uniqid from "uniqid";
 import { fileURLToPath } from "url";
 
-export const publicFolder = join(
-  dirname(fileURLToPath(import.meta.url)),
-  "../public"
-);
+const publicFolder = join(dirname(fileURLToPath(import.meta.url)), "../public");
+
 console.log("img path", publicFolder);
 export const writeImagetoPublicFolder = async (imagefile) => {
   try {
@@ -20,7 +18,8 @@ export const writeImagetoPublicFolder = async (imagefile) => {
     const newpath = join(publicFolder, fileName);
     console.log({ newpath });
     await fs.writeFile(newpath, imagefile.buffer);
-    const imgUrl = `http//:localhost:3001/${fileName}`;
+    const imgUrl = `http://localhost:3001/${fileName}`;
+
     return { imgUrl };
   } catch (error) {
     console.log(error);
