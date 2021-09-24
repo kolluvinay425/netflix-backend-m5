@@ -5,7 +5,7 @@ import netflixRouter from "./services/netflix/netflix.js";
 
 const server = express();
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 server.use(cors());
 server.use(express.json());
 
